@@ -1,45 +1,18 @@
-const query = `
-    query {
-        Page(page: 1, perPage: 10) {
-            media(type: ANIME, sort: POPULARITY_DESC) {
-                id
-                title {
-                    romaji
-                }
-                coverImage {
-                    large
-                }
-                siteUrl
-            }
-        }
-    }
-`;
-
-function fetchAnimeData() {
-    fetch('https://graphql.anilist.co', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({ query })
-    })
+// Fetch data from local JSON file
+fetch('anime-data.json')
     .then(response => response.json())
     .then(data => {
         const animeList = document.getElementById('anime-list');
-        data.data.Page.media.forEach(anime => {
+        data.forEach(anime => {
+            // Create anime item element
             const animeItem = document.createElement('div');
             animeItem.classList.add('anime');
             animeItem.innerHTML = `
-                <img src="${anime.coverImage.large}" alt="${anime.title.romaji}">
-                <h2>${anime.title.romaji}</h2>
-                <a href="${anime.siteUrl}" target="_blank">More Info</a>
+                <img src="${anime.image}" alt="${anime.title}">
+                <h2>${anime.title}</h2>
+                <a href="${anime.url}" target="_blank">More Info</a>
             `;
             animeList.appendChild(animeItem);
         });
     })
-    .catch(error => console.error('Error fetching anime:', error));
-}
-
-// Fetch data when the page loads
-window.onload = fetchAnimeData;
+    .catch(error => console.error('Error fetching anime data:', error));
