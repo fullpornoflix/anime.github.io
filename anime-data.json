@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Attack on Titan",
+        "image": "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+        "url": "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin"
+    },
+    {
+        "id": 2,
+        "title": "Naruto",
+        "image": "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
+        "url": "https://myanimelist.net/anime/20/Naruto"
+    },
+    {
+        "id": 3,
+        "title": "One Piece",
+        "image": "https://cdn.myanimelist.net/images/anime/6/73245.jpg",
+        "url": "https://myanimelist.net/anime/21/One_Piece"
+    }
+]
